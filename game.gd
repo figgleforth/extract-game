@@ -1,6 +1,9 @@
 extends Node2D
 class_name Game
 
+# todo: stop manually placing nodes in main.tscn. Instead, rename this to Main, main.rb, and programmatically add all the matrix nodes.
+# todo: write base generator that they can inherit from. They all implement generate() or something like that, which is called when in _ready(). the generate() can be aliased with regenerate() to basically override the generation.
+
 const size := Vector2i(128, 72)
 const water_elevation = 0.0 # middle of the elevation scale -1..1 for now
 
@@ -90,7 +93,7 @@ func tick() -> void:
         e.position += direction
 
 func draw_to_sprite():
-    remove_child(debug_sprite)
+    debug_sprite.texture = null
     var image := Image.create_empty(size.x, size.y, false, Image.FORMAT_RGBA8)
     elevation.each(func(x, y, value):
         var normalized = (value + 1.0) / 2.0
@@ -135,4 +138,3 @@ func draw_to_sprite():
 
     image.resize(size.x, size.y, Image.INTERPOLATE_NEAREST)
     debug_sprite.texture = ImageTexture.create_from_image(image)
-    add_child(debug_sprite)
