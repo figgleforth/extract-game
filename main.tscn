@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://cb0er6idetb7f"]
+
+[ext_resource type="Script" uid="uid://dipop6cueofdr" path="res://elevation.gd" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://rbnhoj04vb5f" path="res://game.gd" id="2_h2yge"]
+[ext_resource type="Script" uid="uid://bs5ohqmha6flx" path="res://trees.gd" id="5_lquwl"]
+[ext_resource type="Script" uid="uid://c24mptmcijixd" path="res://steepness.gd" id="6_7mycd"]
+[ext_resource type="Script" uid="uid://vham67jtgtjt" path="res://movement_cost.gd" id="7_5vw27"]
+[ext_resource type="Script" uid="uid://db7t5g8rs57nh" path="res://water.gd" id="7_272bh"]
+[ext_resource type="Script" uid="uid://bus2uem2aj8vv" path="res://compound_pool.gd" id="8_5vw27"]
+[ext_resource type="Script" uid="uid://dyculhn223ns2" path="res://compound_heatmap.gd" id="9_4c57u"]
+[ext_resource type="Script" uid="uid://crb3w05nav7t3" path="res://compounds.gd" id="9_kek77"]
+[ext_resource type="Script" uid="uid://dg3jk7bcry107" path="res://entities.gd" id="10_4c57u"]
+
+[node name="Main" type="Node2D" unique_id=1947944928]
+
+[node name="game" type="Node2D" parent="." unique_id=2015267971]
+unique_name_in_owner = true
+script = ExtResource("2_h2yge")
+
+[node name="elevation" type="Node2D" parent="game" unique_id=890712236]
+unique_name_in_owner = true
+script = ExtResource("2_0xm2m")
+
+[node name="trees" type="Node2D" parent="game" unique_id=829292215]
+unique_name_in_owner = true
+script = ExtResource("5_lquwl")
+
+[node name="water" type="Node2D" parent="game" unique_id=654820024]
+unique_name_in_owner = true
+script = ExtResource("7_272bh")
+
+[node name="steepness" type="Node2D" parent="game" unique_id=1310630958]
+unique_name_in_owner = true
+script = ExtResource("6_7mycd")
+
+[node name="movement_cost" type="Node2D" parent="game" unique_id=1195741411]
+unique_name_in_owner = true
+script = ExtResource("7_5vw27")
+
+[node name="compounds" type="Node2D" parent="game" unique_id=1550310621]
+unique_name_in_owner = true
+script = ExtResource("9_kek77")
+
+[node name="compound_pool" type="Node2D" parent="game/compounds" unique_id=868905881]
+unique_name_in_owner = true
+script = ExtResource("8_5vw27")
+
+[node name="compound_heatmap" type="Node2D" parent="game/compounds" unique_id=447057538]
+unique_name_in_owner = true
+script = ExtResource("9_4c57u")
+
+[node name="entities" type="Node2D" parent="game" unique_id=218452355]
+unique_name_in_owner = true
+script = ExtResource("10_4c57u")
